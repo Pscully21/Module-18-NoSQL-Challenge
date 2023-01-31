@@ -1,5 +1,4 @@
 const { Schema, model} = require ('mongoose');
-const { stringify } = require('querystring');
 const dateFormatter = require('../utils/dateFormatter');
 
 const reactionSchema = new Schema({
@@ -14,7 +13,7 @@ const reactionSchema = new Schema({
     },
     username: {
         type: String,
-        reqyuired: true,
+        required: true,
     },
     createdAt: {
         type: Date,
@@ -41,10 +40,12 @@ const thoughtSchema = new Schema(
         },
         reactions: [reactionSchema],
     },
-    toJSON: {
+{
+        toJSON: {
         virtuals: true,
     },
+}   
 );
 
-const Thought = model('Thought', ThoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 module.exports = Thought
