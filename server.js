@@ -15,4 +15,4 @@ mongoose.connect(
         useUnifiedTopology: true
     }
 );
-// queries
+app.listen(PORT, () => console.log(`listening on localhost:${PORT}`))
